@@ -1,0 +1,1 @@
+enum LtPosition { top, bottom }

@@ -1,0 +1,1 @@
+enum LionMovement { middle, up, down }
