@@ -34,9 +34,18 @@ class LtGroup extends PositionComponent with HasGameRef<LotusLionGame> {
     super.update(dt);
     position.x -= Config.gameSpeed * dt;
 
-    if (position.x < -10) {
-      //removeFromParent();
-      debugPrint('Removed');
+    if (position.x < -40) {
+      removeFromParent();
+      updateScore();
+      
     }
+    if (gameRef.isHit) {
+      removeFromParent();
+      gameRef.isHit = false;
+    }
+  }
+
+  void updateScore() {
+    gameRef.lion.score += 1;
   }
 }

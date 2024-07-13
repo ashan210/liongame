@@ -1,6 +1,7 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
+import 'package:flame_audio/flame_audio.dart';
 
 import 'package:liongame/game/lion_movement.dart';
 import 'package:liongame/game/assets.dart';
@@ -42,6 +43,7 @@ class Lion extends SpriteGroupComponent<LionMovement>
       ),
     );
     current = LionMovement.up;
+    FlameAudio.play(Assets.flying);
   }
 
     @override
@@ -53,8 +55,15 @@ class Lion extends SpriteGroupComponent<LionMovement>
       gameOver();
     }
 
+    void reset() {
+      position = Vector2(50, gameRef.size.y / 2 - size.y / 2);
+      score = 0;
+    }
+
     void gameOver() {
+      gameRef.overlays.add('gameOver');
       gameRef.pauseEngine();
+      game.isHit = true;
     }
 
     @override
