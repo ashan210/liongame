@@ -30,6 +30,7 @@ class Lion extends SpriteGroupComponent<LionMovement>
       LionMovement.up: lionup,
       LionMovement.down: liondown,
     };
+    add(CircleHitbox());
   }
 
   void fly() {
@@ -44,11 +45,24 @@ class Lion extends SpriteGroupComponent<LionMovement>
   }
 
     @override
+    void  onCollisionStart(
+      Set<Vector2> intersectionPoints,
+      PositionComponent other,
+    ){
+      super.onCollisionStart(intersectionPoints, other);
+      gameOver();
+    }
+
+    void gameOver() {
+      gameRef.pauseEngine();
+    }
+
+    @override
   void update(double dt) {
     super.update(dt);
     position.y += Config.lionVelocity * dt;
-    //if (position.y < 1) {
-      //gameOver();
-    //}
+    if (position.y < 1) {
+      gameOver();
+    }
   }
     }

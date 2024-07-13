@@ -7,7 +7,7 @@ import 'package:liongame/components/lion.dart';
 import 'package:liongame/components/lt_group.dart';
 import 'package:liongame/game/configuration.dart';
 
-class LotusLionGame extends FlameGame with TapDetector{
+class LotusLionGame extends FlameGame with TapDetector, HasCollisionDetection{
   late Lion lion;
   Timer interval = Timer(Config.ltInterval, repeat: true);
 
