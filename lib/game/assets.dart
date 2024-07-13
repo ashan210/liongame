@@ -10,6 +10,6 @@ class Assets {
   static const liondown = 'lion_down.png';
 
   static const gameOver = 'assets/images/gameover.png';
-  static const menu = 'assets/images/menu.jpg';
+  static const menu = 'assets/images/menu.png';
   static const message = 'assets/images/message.png';
 }

@@ -20,7 +20,7 @@ class LotusTower extends SpriteComponent with HasGameRef<LotusLionGame> {
   Future<void> onLoad() async {
     final lt = await Flame.images.load(Assets.lt);
     final ltupside = await Flame.images.load(Assets.ltupside);
-    size = Vector2(180, height);
+    size = Vector2(150, height);
 
     switch (ltPosition) {
       case LtPosition.top:
