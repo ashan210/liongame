@@ -7,7 +7,7 @@ import 'package:liongame/components/lion.dart';
 import 'package:liongame/components/lt_group.dart';
 import 'package:liongame/game/configuration.dart';
 
-class LotusLionGame extends FlameGame {
+class LotusLionGame extends FlameGame with TapDetector{
   late Lion lion;
   Timer interval = Timer(Config.ltInterval, repeat: true);
 
@@ -21,6 +21,12 @@ class LotusLionGame extends FlameGame {
       ]);
 
       interval.onTick = () => add(LtGroup());
+  }
+
+  @override
+  void onTap() {
+    super.onTap();
+    lion.fly();
   }
 
   @override

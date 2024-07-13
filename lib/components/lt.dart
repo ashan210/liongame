@@ -24,11 +24,11 @@ class LotusTower extends SpriteComponent with HasGameRef<LotusLionGame> {
 
     switch (ltPosition) {
       case LtPosition.top:
-        position.y = 0;
+        position.y = -20;
         sprite = Sprite(ltupside);
         break;
       case LtPosition.bottom:
-        position.y = gameRef.size.y - size.y - Config.groundHeight;
+        position.y = gameRef.size.y - size.y - Config.groundHeight + 3;
         sprite = Sprite(lt);
         break;
     }
