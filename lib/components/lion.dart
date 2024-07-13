@@ -61,6 +61,7 @@ class Lion extends SpriteGroupComponent<LionMovement>
     }
 
     void gameOver() {
+      FlameAudio.play(Assets.collision);
       gameRef.overlays.add('gameOver');
       gameRef.pauseEngine();
       game.isHit = true;

@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flame/components.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:liongame/game/assets.dart';
 import 'package:liongame/game/configuration.dart';
@@ -47,5 +48,6 @@ class LtGroup extends PositionComponent with HasGameRef<LotusLionGame> {
 
   void updateScore() {
     gameRef.lion.score += 1;
+    FlameAudio.play(Assets.point);
   }
 }
